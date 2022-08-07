@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PostView: View {
     
-    let post: Post
+    @State var post: Post
     let screenWidth: CGFloat
     
     var body: some View {
@@ -43,11 +43,18 @@ struct PostView: View {
             
             //Operations menu.
             HStack {
-                Image(systemName: "heart")
-                    .resizable()
-                    .frame(width: 15, height: 15)
-                    .padding(5)
-                    .padding(.leading, 10)
+                Button {
+                    post.hasLiked.toggle()
+                } label: {
+                    Image(systemName: "heart")
+                        .resizable()
+                        .frame(width: 15, height: 15)
+                        .padding(5)
+                        .padding(.leading, 10)
+                        .foregroundColor(post.hasLiked ? .red : .black)
+                }
+
+               
                 Image(systemName: "bubble.right")
                     .resizable()
                     .frame(width: 15, height: 15)

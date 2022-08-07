@@ -13,6 +13,6 @@ struct Post: Identifiable {
     let postImage: String
     let caption: String
     let likes: String
-    let hasLiked: Bool = false
+    var hasLiked: Bool = false
     let hasBookmarked: Bool = false
 }
